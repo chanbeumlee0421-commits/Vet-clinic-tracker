@@ -6,7 +6,7 @@ from concurrent.futures import ThreadPoolExecutor
 # 웹 화면 설정
 st.set_page_config(page_title="동물병원 변동 알리미", layout="wide")
 
-st.title("🐾 전국 동물병원 개업/폐업 실시간 추적기")
+st.title("🐾 전국 동물병원 개업/폐업 실시간 추적기 "(경보제약 동물사업부)"")
 st.write("공공데이터 API를 통해 전국 데이터를 즉시 분석합니다.")
 
 # 1. 설정값
@@ -67,3 +67,4 @@ if run_btn:
                     with st.expander(f"📍 {reg} 폐업 ({len(new_closed[new_closed['시도']==reg])}건)"):
                         st.dataframe(new_closed[new_closed['시도']==reg][['BPLC_NM', '전체주소', 'CLSBIZ_YMD']], use_container_width=True)
             else: st.info("내역이 없습니다.")
+
