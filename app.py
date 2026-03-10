@@ -56,7 +56,8 @@ if run_btn:
             if not new_open.empty:
                 regions = sorted(new_open['시도'].unique())
                 for reg in regions:
-                    with st.expander(f"📍 {reg} 개업 ({len(new_open[new_open['시도']==reg])}건)"):
+                    # [수정 부분] expanded=True 옵션을 추가하여 처음부터 펼쳐지게 설정함
+                    with st.expander(f"📍 {reg} 개업 ({len(new_open[new_open['시도']==reg])}건)", expanded=True):
                         st.dataframe(new_open[new_open['시도']==reg][['BPLC_NM', '전체주소', 'LCPMT_YMD', 'TELNO']], use_container_width=True)
             else: st.info("내역이 없습니다.")
 
@@ -64,8 +65,7 @@ if run_btn:
             if not new_closed.empty:
                 regions = sorted(new_closed['시도'].unique())
                 for reg in regions:
-                    with st.expander(f"📍 {reg} 폐업 ({len(new_closed[new_closed['시도']==reg])}건)"):
+                    # [수정 부분] 폐업 탭의 리스트도 처음부터 펼쳐지게 설정함
+                    with st.expander(f"📍 {reg} 폐업 ({len(new_closed[new_closed['시도']==reg])}건)", expanded=True):
                         st.dataframe(new_closed[new_closed['시도']==reg][['BPLC_NM', '전체주소', 'CLSBIZ_YMD']], use_container_width=True)
             else: st.info("내역이 없습니다.")
-
-
