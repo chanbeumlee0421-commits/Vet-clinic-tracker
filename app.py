@@ -107,8 +107,9 @@ if run_btn:
                 f"{', '.join(MANAGER_REGIONS[selected_manager])}"
             )
 
-        tab1, tab2 = st.tabs(["🆕 신규 개업 상세", "❌ 신규 폐업 상세"])
+        
         st.warning("※개원 신고만 하고 실제로는 아직 오픈 전인 경우가 있으니 반드시 사전에 네이버지도 검색 혹은 전화를 통해 확인 후 방문 부탁 드립니다.")
+        tab1, tab2 = st.tabs(["🆕 신규 개업 상세", "❌ 신규 폐업 상세"])
 
         with tab1:
             if not open_filtered.empty:
